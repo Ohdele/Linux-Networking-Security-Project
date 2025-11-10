@@ -1,10 +1,13 @@
-# SECURE INFRASTRUCTURE SOLUTION (Project 2: Networking & Hardening)
+
+# Linux-Networking-Security-Project
+Secure Linux environment demonstrating practical networking and access control.
+
+# SECURE INFRASTRUCTURE SOLUTION (Project: Networking & Hardening)
 
 **Goal:** Establish a robust, production-ready server baseline with secure networking and hardened remote access controls.
 
----
 
-## I. Task 1: Static IP Configuration
+## 1: Static IP Configuration
 
 ### Objective: Establish Predictable Network Routing
 
