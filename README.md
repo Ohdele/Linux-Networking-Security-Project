@@ -13,3 +13,10 @@ Configure the server's private network interface to use a static IP address, whi
 
 ---
 
+## Task 2: Secure Remote Access (SSH Hardening)
+
+### Objective: Restrict Server Access
+
+Harden the OpenSSH Server configuration by changing the default port (to 2222) and disabling insecure login methods (Root Login, Password Authentication).
+
+[View Output in task2-ssh-hardening-output.txt]
