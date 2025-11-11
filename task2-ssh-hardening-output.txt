@@ -1,0 +1,12 @@
+
+--- 1. Making SSH Configuration Backup ---
+ 
+--- 2. Applying Hardening Changes to sshd_config ---
+--- 3. Testing SSH Configuration for Errors ---
+--- 4. Restarting SSH Service to Apply Changes ---
+--- 5. Verifying SSH Service Status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2025-11-11 00:14:19 UTC; 17ms ago
+
+
