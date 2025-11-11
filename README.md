@@ -19,4 +19,15 @@ Configure the server's private network interface to use a static IP address, whi
 
 Harden the OpenSSH Server configuration by changing the default port (to 2222) and disabling insecure login methods (Root Login, Password Authentication).
 
-[View Output in task2-ssh-hardening-output.txt]
+[View Output in task2-output.txt]
+
+---
+
+## Task 3: Firewall Configuration
+
+### Objective: Implement Secure Access Control
+
+Configure the Uncomplicated Firewall (UFW) to enforce a default-deny policy, explicitly allowing only essential services (SSH on port 2222) to minimize the server's attack surface.
+
+[View Output in task3-firewall-output.txt]
+

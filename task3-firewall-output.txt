@@ -1,0 +1,25 @@
+dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo ufw default deny incoming
+[sudo] password for dele: 
+Default incoming policy changed to 'deny'
+(be sure to update your rules accordingly)
+
+---
+
+dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo ufw allow 2222/tcp
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+
+---
+
+dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo ufw enable
+Firewall is active and enabled on system startup
+dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                                Action  From
+--                                ------  ----
+2222/tcp                          ALLOW IN  Anywhere
+2222/tcp (v6)                     ALLOW IN  Anywhere (v6)
