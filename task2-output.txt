@@ -1,0 +1,14 @@
+dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo cat /etc/ssh/sshd_config | grep -E 'Port|PermitRootLogin|PasswordAuthentication'
+[sudo] password for dele: 
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+# PasswordAuthentication.  Depending on your PAM configuration,
+# the setting of "PermitRootLogin without-password".
+# PAM authentication, then enable this but set PasswordAuthentication
+#GatewayPorts no
+
+dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo systemctl status sshd | head -n 3
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2025-11-11 00:14:19 UTC; 1h 5min ago
