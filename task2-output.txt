@@ -12,3 +12,7 @@ dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo systemctl status 
 ● ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
      Active: active (running) since Tue 2025-11-11 00:14:19 UTC; 1h 5min ago
+
+---Successful Key-Based SSH Login---
+ssh -p 2222 dele@127.0.0.1
+(Login successful without password, using key)
