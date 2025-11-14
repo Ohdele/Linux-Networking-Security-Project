@@ -1,19 +1,59 @@
---- Task 5: Samba Setup Commands ---
-dele@VPNSERVER:~$ sudo mkdir /samba_share
-dele@VPNSERVER:~$ sudo chmod 777 /samba_share
-dele@VPNSERVER:~$ sudo smbpasswd -a dele
-(Password entered successfully)
-dele@VPNSERVER:~$ sudo systemctl restart smbd
-dele@VPNSERVER:~$ sudo systemctl status smbd
-(Output showing smbd is active/running)
+--- Task 5: Samba Setup Commands (Server) ---
 
---- Validation Test Over VPN Tunnel ---
+Server Setup output
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ echo "--- Task 5: Samba Setup Commands (Server) ---"
+--- Task 5: Samba Setup Commands (Server) ---
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ sudo mkdir /samba_share
+mkdir: cannot create directory ‘/samba_share’: File exists
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ sudo chmod 777 /samba_share
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ sudo smbpasswd -a dele
+New SMB password:
+Retype new SMB password:
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ sudo systemctl restart smbd
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ sudo systemctl status smbd
+● smbd.service - Samba SMB Daemon
+     Loaded: loaded (/lib/systemd/system/smbd.service; enabled; vendor preset: >
+     Active: active (running) since Fri 2025-11-14 09:02:29 UTC; 9s ago
+       Docs: man:smbd(8)
+             man:samba(7)
+             man:smb.conf(5)
+     Process: 4385 ExecStartPre=/usr/share/samba/update-apparmor-samba-profile (>
+    Main PID: 4389 (smbd)
+      Status: "smbd: ready to serve connections..."
+      Tasks: 4 (limit: 4595)
+      Memory: 8.9M
+         CPU: 113ms
+      CGroup: /system.slice/smbd.service
+              ├─4389 /usr/sbin/smbd --foreground --no-process-group
+              ├─4391 /usr/sbin/smbd --foreground --no-process-group
+              ├─4392 /usr/sbin/smbd --foreground --no-process-group
+              └─4393 /usr/lib/x86_64-linux-gnu/samba/samba-bgqd --ready-signal-f>
+
+Nov 14 09:02:29 VPNSERVER systemd[1]: Starting Samba SMB Daemon...
+Nov 14 09:02:29 VPNSERVER systemd[1]: Started Samba SMB Daemon.
+lines 1-20/20 (END)
+
+
+---
+
+
+Client Validation output
+
+dele@dele-VirtualBox:~$ echo "--- Task 5: Application Traffic Validation (Client over VPN) ---"
+--- Task 5: Application Traffic Validation (Client over VPN) ---
+
 dele@dele-VirtualBox:~$ smbclient -L 10.8.0.1 -U dele
 Password for [WORKGROUP\dele]:
 
-	Sharename	Type	Comment
-	---------	----	-------
-	print$		Disk	Printer Drivers
-	project_share	Disk	Project Files
-	IPC$		IPC	IPC Service
+	Sharename       Type      Comment
+	---------       ----      -------
+	print$          Disk      Printer Drivers
+	project_share   Disk      Project Files
+	IPC$            IPC       IPC Service (VPNSERVER server (Samba, Ubuntu))
 SMB1 disabled -- no workgroup available
