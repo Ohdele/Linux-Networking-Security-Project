@@ -18,6 +18,11 @@ dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ ip a
            valid_lft forever preferred_lft forever
     inet6 fe80::a00:27ff:fe6d:bf88/64 scope link 
            valid_lft forever preferred_lft forever
+
+
+---
+
+
 dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo netplan apply
 [sudo] password for dele: 
 
@@ -28,7 +33,12 @@ dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo netplan apply
 ** (process:3392): WARNING **: 23:44:10.576: Permissions for /etc/netplan/01-network-manager-all.yaml are too open. Netplan configuration should NOT be accessible by others.
 
 ** (process:3392): WARNING **: 23:44:10.576: Permissions for /etc/netplan/01-network-manager-all.yaml are too open. Netplan configuration should NOT be accessible by others.
+
+
+---
+
 dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo chmod 600 /etc/netplan/01-network-manager-all.yaml
+
 dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00

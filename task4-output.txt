@@ -1,0 +1,13 @@
+--- OpenVPN Tunnel Status Verification ---
+dele@dele-VirtualBox:~$ ip a show tun0
+4: tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 100
+    link/none
+    inet 10.8.0.2/24 brd 10.8.0.255 scope global tun0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::8c36:c02f:78ef:7686/64 scope link stable-privacy
+       valid_lft forever preferred_lft forever
+
+--- VPN Ping Test (Proof of Connectivity) ---
+dele@dele-VirtualBox:~$ ping -c 3 10.8.0.1
+(Output showing 0% packet loss to 10.8.0.1 - VPN Server)
+
