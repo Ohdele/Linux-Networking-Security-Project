@@ -1,6 +1,7 @@
-SECURE INFRASTRUCTURE SOLUTION (Project 2: Networking & Hardening)
+Project 2: Linux Networking & Security Lab
 
-Goal: Establish a robust, production-ready server baseline with secure networking and hardened remote access controls.
+Goal: a secure Linux environment that demonstrates real-world networking and access control. 
+Outcome: A safe, networked Linux environment ready for secure application deployment and testing.
 ---
 ## 1: Static IP Configuration
 
