@@ -1,13 +1,30 @@
---- OpenVPN Tunnel Status Verification ---
+--- Task 4: OpenVPN Tunnel Verification ---
 dele@dele-VirtualBox:~$ ip a show tun0
-4: tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 100
-    link/none
-    inet 10.8.0.2/24 brd 10.8.0.255 scope global tun0
-       valid_lft forever preferred_lft forever
-    inet6 fe80::8c36:c02f:78ef:7686/64 scope link stable-privacy
-       valid_lft forever preferred_lft forever
+4: tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 500
+     link/none
+     inet 10.8.0.4/24 scope global tun0
+        valid_lft forever preferred_lft forever
+     inet6 fe80::91f9:b4fc:e549:d152/64 scope link stable-privacy
+        valid_lft forever preferred_lft forever
 
---- VPN Ping Test (Proof of Connectivity) ---
+--- Task 4: Connectivity Test ---
 dele@dele-VirtualBox:~$ ping -c 3 10.8.0.1
-(Output showing 0% packet loss to 10.8.0.1 - VPN Server)
+PING 10.8.0.1 (10.8.0.1) 56(84) bytes of data.
+64 bytes from 10.8.0.1: icmp_seq=1 ttl=64 time=0.924 ms
+64 bytes from 10.8.0.1: icmp_seq=2 ttl=64 time=2.19 ms
+64 bytes from 10.8.0.1: icmp_seq=3 ttl=64 time=2.72 ms
 
+--- 10.8.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2049ms
+rtt min/avg/max/mdev = 0.924/1.945/2.717/0.752 ms
+
+--- Task 4: Application Traffic Validation (Samba) ---
+dele@dele-VirtualBox:~$ smbclient -L 10.8.0.1 -U dele
+Password for [WORKGROUP\dele]:
+
+    Sharename       Type      Comment
+    ---------       ----      -------
+    print$          Disk      Printer Drivers
+    project_share   Disk      Project Files
+    IPC$            IPC       IPC Service (VPNSERVER server (Samba, Ubuntu))
+SMB1 disabled -- no workgroup available
