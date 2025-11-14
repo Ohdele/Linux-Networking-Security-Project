@@ -1,4 +1,9 @@
-dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo cat /etc/ssh/sshd_config | grep -E 'Port|PermitRootLogin|PasswordAuthentication'
+Command-Output Flow for Task 2
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ echo "--- Task 2: SSH Configuration Check ---"
+--- Task 2: SSH Configuration Check ---
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ sudo cat /etc/ssh/sshd_config | grep -E 'Port|PermitRootLogin|PasswordAuthentication'
 [sudo] password for dele: 
 Port 2222
 PermitRootLogin no
@@ -8,11 +13,40 @@ PasswordAuthentication no
 # PAM authentication, then enable this but set PasswordAuthentication
 #GatewayPorts no
 
-dele@dele-VirtualBox:~/Linux-Networking-Security-Project$ sudo systemctl status sshd | head -n 3
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ echo "--- Task 2: Restart SSH Service ---"
+--- Task 2: Restart SSH Service ---
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ sudo systemctl restart sshd
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ sudo systemctl status sshd | head -n 3
 ● ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
-     Active: active (running) since Tue 2025-11-11 00:14:19 UTC; 1h 5min ago
+     Active: active (running) since Fri 2025-11-14 10:22:15 UTC; 20s ago
 
----Successful Key-Based SSH Login---
-ssh -p 2222 dele@127.0.0.1
-(Login successful without password, using key)
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ echo "--- Task 2: Key-Based SSH Login Validation ---"
+--- Task 2: Key-Based SSH Login Validation ---
+
+dele@VPNSERVER:~/Linux-Networking-Security-Project$ ssh -p 2222 dele@127.0.0.1
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-87-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+3 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Thu Nov 13 17:12:12 2025 from 127.0.0.1
+Welcome, dele! You’ve successfully modified the .bashrc file!
+
+dele@VPNSERVER:~$ exit
+logout
+Connection to 127.0.0.1 closed.
+dele@VPNSERVER:~/Linux-Networking-Security-Project$
