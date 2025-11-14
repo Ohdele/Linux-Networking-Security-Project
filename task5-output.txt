@@ -1,0 +1,19 @@
+--- Task 5: Samba Setup Commands ---
+dele@VPNSERVER:~$ sudo mkdir /samba_share
+dele@VPNSERVER:~$ sudo chmod 777 /samba_share
+dele@VPNSERVER:~$ sudo smbpasswd -a dele
+(Password entered successfully)
+dele@VPNSERVER:~$ sudo systemctl restart smbd
+dele@VPNSERVER:~$ sudo systemctl status smbd
+(Output showing smbd is active/running)
+
+--- Validation Test Over VPN Tunnel ---
+dele@dele-VirtualBox:~$ smbclient -L 10.8.0.1 -U dele
+Password for [WORKGROUP\dele]:
+
+	Sharename	Type	Comment
+	---------	----	-------
+	print$		Disk	Printer Drivers
+	project_share	Disk	Project Files
+	IPC$		IPC	IPC Service
+SMB1 disabled -- no workgroup available
